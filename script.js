@@ -9,7 +9,7 @@ const LOCAL_OBJ = "オブジェクトで設定したオブジェクトメソッ�
 //吹き出しの番号を指定するID
 let talkID = 0;
 //グローバル変数(定数)
-const whatBobSays = GLOBAL;
+let whatBobSays = GLOBAL;
 
 //起動時に呼ばれる
 window.onload= function(){
@@ -26,9 +26,14 @@ function bob(){
 
         switch(talkID){
             case 0: //itch文の`case`の中で、ID2の文字列が格納された変数`whatBobSays`を宣言して使用する
+            let whatBobSays = LOCAL_SWITCH;
+            setDialog(whatBobSays,talkID)
             break;
 
-            case 1: //ID1の文字列が既に格納され関数`bob()`のローカル変数`whatBobSays`を使用する
+            case 1: //ID1の文字列が既に格納され関数`bob()`のローカル変数`whatBobSays`を使用する;
+            const LOCAL_BOB = LOCAL_SWITCH;
+            whatBobSays = LOCAL_BOB;
+            setDialog(whatBobSays,talkID)
             break;
 
             case 2: //ID2の文字列が既に格納されたグローバル変数`whatBobSays`を使用する
