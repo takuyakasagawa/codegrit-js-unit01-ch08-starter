@@ -19,20 +19,18 @@ window.onload= function(){
 
 //talkIDに応じてBobの発する言葉を決める関数
 function bob(){
-    const  whatBobSays =LOCAL_BOB;
+    const whatBobSays = LOCAL_BOB;
     for(let talkID=0; talkID<=5; talkID++){
-
-        const  whatBobSays = LOCAL_FOR; //ローカル変数(定数)
-
+        let whatBobSays = LOCAL_FOR; //ローカル変数(定数)
         switch(talkID){
             case 0: //itch文の`case`の中で、ID2の文字列が格納された変数`whatBobSays`を宣言して使用する
-            let whatBobSays = LOCAL_SWITCH;
+            const whatBobSays = LOCAL_SWITCH;
             setDialog(whatBobSays,talkID)
             break;
 
             case 1: //ID1の文字列が既に格納され関数`bob()`のローカル変数`whatBobSays`を使用する;
-            const LOCAL_BOB = LOCAL_SWITCH;
-            whatBobSays = LOCAL_BOB;
+            const whatBobSays = LOCAL_BOB;
+            const whatBobSays = whatBobSays;
             setDialog(whatBobSays,talkID)
             break;
 
