@@ -30,7 +30,7 @@ function bob(){
 
             case 1: //ID1の文字列が既に格納され関数`bob()`のローカル変数`whatBobSays`を使用する;
             const whatBobSays = LOCAL_BOB;
-            const whatBobSays = whatBobSays;
+            const _whatBobSays = whatBobSays;
             setDialog(whatBobSays,talkID)
             break;
 
