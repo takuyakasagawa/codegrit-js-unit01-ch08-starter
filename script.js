@@ -41,7 +41,7 @@ function bob(){
             break;
 
             case 4: //関数`bob()`内のfor文のブロックスコープにある、ID4の文字列が格納された変数`whatBobSays`から取得する
-            setDialog(LOCAL_FOR,talkID)
+            setDialog(whatBobSays,talkID)
             break;
 
             default: //オブジェクトを作成し、ID5の文字列を返すオブジェクトメソッド`whatBobSays`を使用する
