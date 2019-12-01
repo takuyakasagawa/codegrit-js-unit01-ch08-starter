@@ -9,7 +9,7 @@ const LOCAL_OBJ = "オブジェクトで設定したオブジェクトメソッ�
 //吹き出しの番号を指定するID
 let talkID = 0;
 //グローバル変数(定数)
-let whatBobSays = GLOBAL;
+var whatBobSays = GLOBAL;
 
 //起動時に呼ばれる
 window.onload= function(){
@@ -19,29 +19,36 @@ window.onload= function(){
 
 //talkIDに応じてBobの発する言葉を決める関数
 function bob(){
-    const whatBobSays = LOCAL_BOB;
+    const whatBobSays = LOCAL_BOB; //ID1
     const _whatBobSays = whatBobSays;
     for(let talkID=0; talkID<=5; talkID++){
-        let whatBobSays = LOCAL_FOR; //ローカル変数(定数)
+        let whatBobSays = LOCAL_FOR; //ローカル変数(定数) ID4
         switch(talkID){
-            case 0: //itch文の`case`の中で、ID2の文字列が格納された変数`whatBobSays`を宣言して使用する
-            const whatBobSays = LOCAL_SWITCH;
-            setDialog(whatBobSays,talkID)
+            case 0: {//switch文の`case`の中で、ID2の文字列が格納された変数`whatBobSays`を宣言して使用する
+                const whatBobSays = LOCAL_SWITCH;
+                setDialog(whatBobSays, talkID)
+            }
             break;
 
-            case 1: //ID1の文字列が既に格納され関数`bob()`のローカル変数`whatBobSays`を使用する;
-            //const whatBobSays = LOCAL_BOB;
-            setDialog(_whatBobSays,talkID)
+            case 1: {//ID1の文字列が既に格納され関数`bob()`のローカル変数`whatBobSays`を使用する;
+                //const whatBobSays = LOCAL_BOB;
+                setDialog(_whatBobSays, talkID)
+            }
             break;
 
-            case 2: //ID2の文字列が既に格納されたグローバル変数`whatBobSays`を使用する
+            case 2: {//ID2の文字列が既に格納されたグローバル変数`whatBobSays`を使用する
+                setDialog(this.whatBobSays, talkID)
+            }
             break;
 
-            case 3://関数`bob()`の中で関数`whatBobSays`を作成し、その中で宣言したものを利用する
+            case 3: {//関数`bob()`の中で関数`whatBobSays`を作成し、その中で宣言したものを利用する
+                setDialog(whatBobSays, talkID)
+            }
             break;
 
-            case 4: //関数`bob()`内のfor文のブロックスコープにある、ID4の文字列が格納された変数`whatBobSays`から取得する
-            setDialog(whatBobSays,talkID)
+            case 4: {//関数`bob()`内のfor文のブロックスコープにある、ID4の文字列が格納された変数`whatBobSays`から取得する
+                setDialog(whatBobSays, talkID)
+            }
             break;
 
             default: //オブジェクトを作成し、ID5の文字列を返すオブジェクトメソッド`whatBobSays`を使用する
