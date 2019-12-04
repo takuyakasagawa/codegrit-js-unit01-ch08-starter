@@ -22,7 +22,7 @@ function bob(){
     const whatBobSays = LOCAL_BOB; //ID1
     const _whatBobSays = whatBobSays;
     for(let talkID=0; talkID<=5; talkID++){
-        let whatBobSays = LOCAL_FOR; //ローカル変数(定数) ID4
+        let whatBobSays = LOCAL_FOR; //ローカル変数(定数) ID4s
         switch(talkID){
             case 0: {//switch文の`case`の中で、ID2の文字列が格納された変数`whatBobSays`を宣言して使用する
                 const whatBobSays = LOCAL_SWITCH;
@@ -42,7 +42,12 @@ function bob(){
             break;
 
             case 3: {//関数`bob()`の中で関数`whatBobSays`を作成し、その中で宣言したものを利用する
-                setDialog(whatBobSays, talkID)
+                function whatBobSays() {// 関数名はwhatBobSaysがまだ他に存在しないので、この関数宣言で使える
+                    const whatBobSays = LOCAL_NEST_FUNCTION;
+                    return whatBobSays;
+                    // メッセージ3の定数LOCAL_NEST_FUNCTIONを取得して、表示させる（「表示 > 返す = return」がヒントです）
+                }
+                setDialog(whatBobSays(), talkID);// 上記の関数を、setDialog内で呼び出しています
             }
             break;
 
@@ -51,7 +56,17 @@ function bob(){
             }
             break;
 
-            default: //オブジェクトを作成し、ID5の文字列を返すオブジェクトメソッド`whatBobSays`を使用する
+            default: {//オブジェクトを作成し、ID5の文字列を返すオブジェクトメソッド`whatBobSays`を使用する
+                const whatBobSays = LOCAL_OBJ;
+                let obj ={
+                    name: whatBobSays,
+                    setName: function() {
+                      this.name = whatBobSays; 
+                      return this.name;
+                    }
+                }
+                setDialog(whatBobSays, talkID)
+            }
             break;
         }
     }
