@@ -57,17 +57,15 @@ function bob(){
             break;
 
             default: {//オブジェクトを作成し、ID5の文字列を返すオブジェクトメソッド`whatBobSays`を使用する
-                const whatBobSays = LOCAL_OBJ;
-                let obj ={
-                    name: whatBobSays,
-                    setName: function() {
-                      this.name = whatBobSays; 
-                      return this.name;
-                    }
+            const whatBobSays = {
+                message: LOCAL_OBJ,
+                whatBobSays: function() {
+                  return this.message;// messageにLOCAL_OBJが入っているから
                 }
-                setDialog(whatBobSays, talkID)
+              }
+              setDialog(whatBobSays.whatBobSays(), talkID);// 「定数whatBobSaysの中にある関数whatBobSays」
             }
-            break;
+              break;
         }
     }
 }
